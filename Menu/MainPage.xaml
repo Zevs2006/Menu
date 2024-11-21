@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Menu.MainPage"
+             Title="Меню">
+    <StackLayout Padding="10">
+        <!-- Заголовок -->
+        <Label Text="Фильтры меню" 
+               FontSize="Large" 
+               HorizontalOptions="Center" 
+               Margin="0,0,0,10"/>
+
+        <!-- Фильтр по цене -->
+        <Entry x:Name="PriceEntry" 
+               Placeholder="Введите максимальную цену"
+               Keyboard="Numeric"/>
+        <Button Text="Применить фильтр по цене" 
+                Clicked="OnFilterByPriceClicked"/>
+
+        <!-- Фильтр по калориям -->
+        <Entry x:Name="CaloriesEntry" 
+               Placeholder="Введите максимальные калории"
+               Keyboard="Numeric"/>
+        <Button Text="Применить фильтр по калориям" 
+                Clicked="OnFilterByCaloriesClicked"/>
+
+        <!-- Фильтр по аллергенам -->
+        <Entry x:Name="AllergenEntry" 
+               Placeholder="Введите аллерген для исключения"/>
+        <Button Text="Применить фильтр по аллергену" 
+                Clicked="OnFilterByAllergenClicked"/>
+
+        <!-- Фильтр по ингредиентам -->
+        <Entry x:Name="IngredientsEntry" 
+               Placeholder="Введите ингредиенты через запятую"/>
+        <Button Text="Применить фильтр по ингредиентам" 
+                Clicked="OnFilterByIngredientsClicked"/>
+
+        <!-- Список меню -->
+        <Label Text="Меню:" FontSize="Medium" Margin="0,20,0,10"/>
+        <CollectionView x:Name="MenuList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="5">
+                        <Label Text="{Binding Name}" FontAttributes="Bold"/>
+                        <Label Text="{Binding Details}" FontSize="Small" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
